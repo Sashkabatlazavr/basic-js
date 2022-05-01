@@ -22,9 +22,8 @@ function countCats(matrix) {
     for (elem of matrix){
     if (elem === cat) {
        count += 1;
-       return;
-    } else if (typeof elem == 'object') {
-      countCats(elem);
+    } else if (Array.isArray(elem)) {
+      count += countCats(elem);
     }
   };
   return count;
